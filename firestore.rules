@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Chats collection
+    match /chats/{chatId} {
+      // Read a chat only if requester is a participant AND it's open
+      allow get, list: if request.auth != null
+                       && request.auth.uid in resource.data.participants
+                       && resource.data.status == "open";
+
+      // Create a chat: creator must be a participant
+      allow create: if request.auth != null
+                    && request.auth.uid in request.resource.data.participants;
+
+      // Update a chat: only participants can update
+      allow update: if request.auth != null
+                    && request.auth.uid in resource.data.participants;
+
+      // (Optional) delete restricted to participants
+      allow delete: if request.auth != null
+                    && request.auth.uid in resource.data.participants;
+    }
+  }
+}

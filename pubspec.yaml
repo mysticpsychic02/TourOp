@@ -1,0 +1,59 @@
+name: driver_connect
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.2+4
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_launcher_icons: ^0.14.4
+  http: ^1.2.1
+
+  # 🔥 FIREBASE (CLIENT)
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.2
+  cloud_firestore: ^5.4.3
+  firebase_storage: ^12.3.5
+  firebase_messaging: ^15.1.6
+
+
+  # UTILITIES
+  shared_preferences: ^2.3.2
+  url_launcher: ^6.3.1
+  image_picker: ^1.1.2
+  share_plus: ^10.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_native_splash: ^2.4.0
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/logo_bg.png
+    - assets/TourOp_text.png
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/TourOp_text.png
+  android_12:
+    color: "#ffffff"
+    image: assets/TourOp_text.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/TourOp_text.png"
+  remove_alpha_ios: true
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/TourOp_text.png"
